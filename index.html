@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Editor</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div id="template-editor">
+  <div id="template-editor--left-pane">
+    <div id="template-editor--left-pane--icon">&equals;</div>
+    <div id="template-editor--left-pane--option">
+      <div id="template-editor--left-pane--option--content">
+        <div>
+          <label for="template-editor--left-pane--option--canvas-width">Width</label>
+          <input id="template-editor--left-pane--option--canvas-width" type="number" value="400">
+        </div>
+        <div>
+          <label for="template-editor--left-pane--option--canvas-height">Height</label>
+          <input id="template-editor--left-pane--option--canvas-height" type="number" value="400">
+        </div>
+      </div>
+      <div id="template-editor--left-pane--option--footer">
+        <div>
+          <button id="template-editor--left-pane--option--save-button">Save</button>
+        </div>
+      </div>
+    </div>
+    <pre id="template-editor--left-pane--json"></pre>
+  </div>
+  <div id="template-editor--screen">
+    <canvas height="400" id="template-editor--screen--canvas" width="400"></canvas>
+  </div>
+  <div id="template-editor--right-pane">
+    <div id="template-editor--right-pane--header">
+      <button id="template-editor--right-pane--upload-image-button">Upload image</button>
+      <input accept="image/jpeg, image/png" hidden id="template-editor--right-pane--upload-image" multiple type="file">
+    </div>
+    <div id="template-editor--right-pane--content"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

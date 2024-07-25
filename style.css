@@ -1,0 +1,179 @@
+/* ============= */
+/* == GENERAL == */
+/* ============= */
+
+:root {
+  --border: 4px;
+  --padding: 8px;
+  --bg-color-1: antiquewhite;
+  --bg-color-2: darkgrey;
+  --fg-color-1: lightcyan;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  width: 100%;
+  padding: var(--padding);
+}
+
+/* ===================== */
+/* == TEMPLATE EDITOR == */
+/* ===================== */
+
+#template-editor {
+  position: relative;
+  height: 100vh;
+  border: var(--border) solid;
+
+  /* =============== */
+  /* == LEFT PANE == */
+  /* =============== */
+
+  #template-editor--left-pane {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    border-right: var(--border) solid;
+    background-color: var(--bg-color-1);
+
+    #template-editor--left-pane--icon {
+      font-size: 2rem;
+      position: absolute;
+      z-index: 1;
+      top: calc(var(--border) * -1);
+      left: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      border: var(--border) solid;
+      background-color: var(--fg-color-1);
+    }
+
+    #template-editor--left-pane--option {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-height: 50%;
+      padding: var(--padding) 0;
+      border-bottom: var(--border) solid;
+      gap: var(--padding);
+
+      #template-editor--left-pane--option--content {
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
+        padding: 0 var(--padding);
+        gap: var(--padding);
+      }
+
+      #template-editor--left-pane--option--footer {
+        padding: 0 var(--padding);
+      }
+    }
+
+    #template-editor--left-pane--json {
+      overflow: auto;
+      flex: 1;
+      width: 100%;
+      padding: var(--padding);
+    }
+  }
+
+  /* ============ */
+  /* == SCREEN == */
+  /* ============ */
+
+  #template-editor--screen {
+    position: absolute;
+    left: 20%;
+    overflow: auto;
+    width: 60%;
+    height: 100%;
+    background-color: var(--bg-color-2);
+
+    #template-editor--screen--canvas {
+      position: absolute;
+      border: var(--border) solid;
+      background-color: white;
+    }
+  }
+
+  /* ================ */
+  /* == RIGHT PANE == */
+  /* ================ */
+
+  #template-editor--right-pane {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    border-left: var(--border) solid;
+    background-color: var(--bg-color-1);
+
+    #template-editor--right-pane--header {
+      padding: var(--padding);
+      border-bottom: var(--border) solid;
+    }
+
+    #template-editor--right-pane--content {
+      display: flex;
+      overflow: auto;
+      flex-direction: column;
+      padding: var(--padding);
+      gap: var(--padding);
+
+      .item {
+        display: flex;
+        overflow: auto;
+        min-height: 64px;
+        max-height: 64px;
+        padding: var(--padding);
+        cursor: pointer;
+        border: var(--border) dashed;
+        gap: var(--padding);
+
+        img {
+          height: 100%;
+        }
+
+        .inner {
+          height: 100%;
+          padding: var(--padding);
+        }
+
+        &:hover {
+          border-style: solid;
+        }
+
+        &.active {
+          border-style: solid;
+          background-color: var(--fg-color-1);
+        }
+
+        .image-wrapper {
+          width: 20%;
+          height: 100%;
+          border: 1px solid;
+
+          .image {
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+          }
+        }
+      }
+    }
+  }
+}
